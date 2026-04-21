@@ -21,13 +21,25 @@ app.use('/api/bids', bidsRoute);
 app.use('/api/notifications', notificationsRoute);
 
 // deployment config
+//const path = require("path");
+//__dirname = path.resolve();
+
+//if (process.env.NODE_ENV === "production") {
+  //app.use(express.static(path.join(__dirname, "/client/dist")));
+  //app.get("*", (req, res) => {
+    //res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  //});
+//}
+
 const path = require("path");
-__dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/dist")));
+  const distPath = path.resolve(__dirname, "../client/dist");
+
+  app.use(express.static(distPath));
+
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+    res.sendFile(path.join(distPath, "index.html"));
   });
 }
 
