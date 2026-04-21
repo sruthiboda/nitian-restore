@@ -33,14 +33,12 @@ app.use('/api/notifications', notificationsRoute);
 
 const path = require("path");
 
-if (process.env.NODE_ENV === "production") {
-  const distPath = path.resolve(__dirname, "../client/dist");
+const distPath = path.resolve(__dirname, "../client/dist");
 
-  app.use(express.static(distPath));
+app.use(express.static(distPath));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-  });
-}
+app.get("*", (req, res) => {
+  res.sendFile(path.join(distPath, "index.html"));
+});
 
 app.listen(port, () => console.log(`Node/Express Server Started on Port ${port}`));
