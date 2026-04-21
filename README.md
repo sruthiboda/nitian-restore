@@ -22,7 +22,9 @@ NITian ReStore is the ultimate platform born out of a college hackathon project,
 
 ## Sneak Peek
 
+## Live Demo
 
+[Visit Website](https://nitian-restore-2.onrender.com)
 
 ### Home Page
 ![Home Page](screenshots/Home-Page.png)
